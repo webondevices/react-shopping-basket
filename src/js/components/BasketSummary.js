@@ -1,5 +1,6 @@
 import React from "react";
 import deliveryPrices from './../data/deliveryPrices';
+import Discounts from './../classes/Discounts';
 
 class BasketSummary extends React.Component {
 
@@ -20,7 +21,7 @@ class BasketSummary extends React.Component {
     }
 
     formatPrice(price) {
-        return Math.round(price * 100) / 100;
+        return Math.trunc(price * 100) / 100;
     }
 
     getDelivery(subTotal) {
@@ -34,11 +35,14 @@ class BasketSummary extends React.Component {
 
     calculatePrice(products) {
         const subTotal = products.reduce((previousSum, product) => previousSum + product.price, 0);
-        const deliveryOption = this.getDelivery(subTotal);
+        const discounts = Discounts.getSecondHalfPrice(products);
+        const deliveryOption = this.getDelivery(subTotal - discounts);
 
         this.setState({
             subTotal: this.formatPrice(subTotal),
-            deliveryOption
+            deliveryOption,
+            discounts: this.formatPrice(discounts),
+            totalPrice: this.formatPrice(subTotal - discounts + deliveryOption.price)
         });
     }
 
@@ -53,9 +57,11 @@ class BasketSummary extends React.Component {
 	render() {
 		return (
             <section>
-                <div>Price: £{this.state.subTotal}</div>
+                <div>Sub total: £{this.state.subTotal}</div>
+                <div>Discounts: -£{this.state.discounts}</div>
                 <div>Delivery option: {this.state.deliveryOption.name}</div>
                 <div>Delivery price: £{this.state.deliveryOption.price}</div>
+                <div>Total price: £{this.state.totalPrice}</div>
             </section>
 		);
 	}
