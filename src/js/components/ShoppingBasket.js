@@ -15,32 +15,34 @@ class ShoppingBasket extends React.Component {
         this.populateProducts = this.populateProducts.bind(this);
     }
 
-    populateProducts(ids){
-        let products = [];
+    populateProducts(productObject){
+        let productList = [];
         
-        ids.forEach(productId => {
-            let product = productsData.find(product => product.id === productId);
+        productObject.forEach(productEntry => {
+
+            let product = productsData.find(product => product.id === productEntry.productId);
 
             if (product !== undefined) {
-                products.push(product);
+                product.recordId = productEntry.recordId;
+                productList.push(product);
             }
         });
 
-        this.setState({products});
+        this.setState({products: productList});
     }
 
     componentWillMount() {
-        this.populateProducts(this.props.productIds);
+        this.populateProducts(this.props.products);
     }
 
     componentWillReceiveProps(nextProps) {
-        this.populateProducts(nextProps.productIds);
+        this.populateProducts(nextProps.products);
     }
 
 	render() {
 		return (
             <div>
-                <ProductList products={this.state.products}/>
+                <ProductList products={this.state.products} removeProduct={this.props.removeProduct}/>
                 <BasketSummary products={this.state.products}/>
             </div>
 		);

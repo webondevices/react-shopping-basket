@@ -17,7 +17,8 @@ class Application extends React.Component {
         };
 
 		this.editNewProduct = this.editNewProduct.bind(this);
-		this.addNewProduct = this.addNewProduct.bind(this);
+        this.addNewProduct = this.addNewProduct.bind(this);
+        this.removeProduct = this.removeProduct.bind(this);
 	}
 
 	editNewProduct(event) {
@@ -32,7 +33,11 @@ class Application extends React.Component {
 		if (this.state.newProduct.length > 0) {
 			this.props.actions.addProduct(this.state.newProduct);
 		}		
-	}
+    }
+    
+    removeProduct(productId) {
+        this.props.actions.removeProduct(productId);
+    }
 
 	getOption(product, i){
 		return <option key={i} value={product.id}>{product.name}</option>;
@@ -53,7 +58,7 @@ class Application extends React.Component {
                     <input className="submit-message" type="submit" value="Add" />
                 </form>
 
-                <ShoppingBasket productIds={this.props.products}/>
+                <ShoppingBasket products={this.props.products} removeProduct={this.removeProduct}/>
 
 			</section>
 		);
