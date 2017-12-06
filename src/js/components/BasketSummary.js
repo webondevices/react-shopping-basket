@@ -17,6 +17,8 @@ class BasketSummary extends React.Component {
             total: 0
         }
 
+        this.minimumRequiredForOffer = 2;
+
         this.calculatePrice = this.calculatePrice.bind(this);
     }
 
@@ -35,7 +37,7 @@ class BasketSummary extends React.Component {
 
     calculatePrice(products) {
         const subTotal = products.reduce((previousSum, product) => previousSum + product.price, 0);
-        const discounts = Discounts.getSecondHalfPrice(products);
+        const discounts = Discounts.getHalfPrice(products, this.minimumRequiredForOffer);
         const deliveryOption = this.getDelivery(subTotal - discounts);
 
         this.setState({

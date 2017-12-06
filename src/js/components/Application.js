@@ -4,7 +4,6 @@ import {connect} from 'react-redux';
 import * as basketActions from './../actions/basketActions';
 
 import ShoppingBasket from './ShoppingBasket';
-
 import productsData from './../data/products';
 
 class Application extends React.Component {

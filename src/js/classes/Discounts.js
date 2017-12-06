@@ -1,5 +1,5 @@
 class Discounts {
-    static getSecondHalfPrice(products) {
+    static getHalfPrice(products, minimumRequired) {
         let totalDiscount = 0;
         let eligibleProduct = 0;
         
@@ -8,7 +8,7 @@ class Discounts {
                 eligibleProduct++;
             }
 
-            if (eligibleProduct === 2) {
+            if (eligibleProduct === minimumRequired) {
                 totalDiscount += product.price / 2;
                 eligibleProduct = 0;
             }

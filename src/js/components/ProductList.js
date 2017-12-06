@@ -17,11 +17,14 @@ class ProductList extends React.Component {
 	}
 
 	render() {
-		return (
-            <ul className="product-box">
+        let markup = <div className="empty-basket">Your basket is empty</div>;
+
+        if (this.props.products.length > 0) {
+            markup = <ul className="product-box">
                 {this.props.products.map((product, i) => this.getListItem(product, i))}
             </ul>
-		);
+        }
+		return markup;
 	}
 }
 
