@@ -45,17 +45,17 @@ class Application extends React.Component {
 
 	render() {
 		return (
-			<section className="shoping-basket-container">
+			<section className="shopping-basket-container">
                 
-                <h1>Title</h1>
+                <h1>Your Basket</h1>
 
                 <form onSubmit={this.addNewProduct}>
-                    <select name="products" onChange={this.editNewProduct}>
+                    <select className="product-selector" name="products" onChange={this.editNewProduct}>
                         <option value=""></option>
                         {productsData.map((product, i) => this.getOption(product, i))}
                     </select>
 
-                    <input className="submit-message" type="submit" value="Add" />
+                    <input className="add-product" type="submit" value="Add" />
                 </form>
 
                 <ShoppingBasket products={this.props.products} removeProduct={this.removeProduct}/>

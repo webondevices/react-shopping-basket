@@ -1,9 +1,23 @@
-$bgColor: white;
+$brandGreen: #bdd752;
+$brandGray: #333;
+$brandBlack: #000;
+$brandOrange: #fdeb97;
 
 body {
-	background-color: $bgColor;
-	
-	h1 {
-		border: 5px solid black;
-	}
+    font-family: Helvetica, Arial, sans-serif;
 }
+
+button, input[type=submit] {
+    -webkit-appearance: none;
+    border-radius: 0;
+    border: 1px solid $brandGray;
+}
+
+select {
+    border-radius: 0;
+    border: 1px solid $brandGray;
+}
+
+@import "Application";
+@import "ProductList";
+@import "BasketSummary";

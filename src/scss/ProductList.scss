@@ -1,0 +1,20 @@
+.product-box {
+    min-height: 50px;
+    border-top: 1px solid $brandGray;
+    border-bottom: 1px solid $brandGray;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.product-item {
+    list-style: none;
+    margin: 20px;
+    height: 30px;
+    padding: 7px 10px;
+    background-color: $brandOrange;
+    box-sizing: border-box;
+
+    & > button {
+        float: right;
+    }
+}

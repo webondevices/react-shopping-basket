@@ -9,7 +9,7 @@ class ProductList extends React.Component {
 
 	getListItem(product, i){
 		return (
-            <li key={i}>
+            <li className="product-item" key={i}>
                 <span>{product.name} , £{product.price}</span>
                 <button onClick={this.props.removeProduct.bind(this, product.recordId)}>Remove</button>
             </li>
@@ -18,7 +18,7 @@ class ProductList extends React.Component {
 
 	render() {
 		return (
-            <ul className="message-box">
+            <ul className="product-box">
                 {this.props.products.map((product, i) => this.getListItem(product, i))}
             </ul>
 		);

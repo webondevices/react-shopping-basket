@@ -1,0 +1,28 @@
+.shopping-basket-container {
+    width: 50%;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: white;
+    border: 2px solid $brandGray;
+    color: $brandGray;
+    margin: 0 auto;
+    padding: 20px;
+
+    & > h1 {
+        font-weight: 100;
+        margin: 0 0 20px;
+    }
+}
+
+.product-selector {
+    width: calc(100% - 100px);
+    height: 30px;
+}
+
+.add-product {
+    width: 80px;
+    height: 30px;
+    margin-left: 20px;
+    -webkit-appearance: none;
+    outline: none;
+}

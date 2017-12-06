@@ -57,11 +57,11 @@ class BasketSummary extends React.Component {
 	render() {
 		return (
             <section>
-                <div>Sub total: £{this.state.subTotal}</div>
-                <div>Discounts: -£{this.state.discounts}</div>
-                <div>Delivery option: {this.state.deliveryOption.name}</div>
-                <div>Delivery price: £{this.state.deliveryOption.price}</div>
-                <div>Total price: £{this.state.totalPrice}</div>
+                <div className="sub-total">Sub total: <span className="amount">£{this.state.subTotal}</span></div>
+                <div className="discounts">Discounts: <span className="amount">-£{this.state.discounts}</span></div>
+                <div className="delivery-option">Delivery option: <span className="amount">{this.state.deliveryOption.name}</span></div>
+                <div className="delivery-price">Delivery price: <span className="amount">£{this.state.deliveryOption.price}</span></div>
+                <div className="total-price">Total price: <span className="amount">£{this.state.totalPrice}</span></div>
             </section>
 		);
 	}
