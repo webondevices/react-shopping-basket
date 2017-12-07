@@ -5,24 +5,30 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel-core/register"
   },
   "author": "Mate Marschalko",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babelify": "^7.3.0",
     "browserify": "^13.1.1",
+    "chai": "^4.1.2",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-15": "^1.0.5",
     "gulp": "^3.9.1",
-    "gulp-sass": "^3.0.0",
     "gulp-connect": "^5.0.0",
+    "gulp-sass": "^3.0.0",
     "keymirror": "^0.1.1",
+    "mocha": "^4.0.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^5.0.5",
-    "redux-immutable-state-invariant": "^2.0.0",
+    "react-test-renderer": "^15.0.0",
     "redux": "^3.6.0",
+    "redux-immutable-state-invariant": "^2.0.0",
     "vinyl-source-stream": "^1.1.0"
   }
 }
